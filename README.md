@@ -1,56 +1,48 @@
-About MTPT
---------------------
+# About MTPT
 
 MTPT is based on the NexusPHP project, with many improvements.
-You can get it from http://github.com/MTPT/mtpt/
 
-声明
---------------------
-* 原库代码过于混乱，且和现存版本有较大差距，故清空重建，新版代码已上线！
+You can get it from http://github.com/nwafu-mta/mtpt/
 
-LICENSE
---------------------
+There are a big gap between codes in the old repository (github.com/MTPT/mtpt) and codes in this repository. The old repository has been removed.
+
+# License
+
 This project is based on GPL release agreement, you will get an LICENSE file with mtpt, you can get the source code for free, to modify the source code you must follow the GPL agreement.
 
-INSTALLATION
---------------------
-To install mtpt on your local machine please see INSTALL.txt in this folder.
+# Installation
 
-CONTACT
---------------------
-You can  mail us:
+See INSTALL.txt
 
-- mtpt#nwsuaf.edu.cn
-* (replace # with @)
+# Contact
 
-Update in 0.3
---------------------------
-增加偷麦粒应用，彩票应用，改名，购买促销应用
-群聊自动喊话机器人
-求种，回收站，自助求邀，标题自动生成系统
-自动获取imdb和豆瓣链接系统
-完善考核系统
-添加二级分类图标
-自助绑定学号
-完善站内信，加入@功能，引用发布功能
-更容易安装使用
+You can mail us: `mtpt#nwsuaf.edu.cn` (replace # with @)
 
-Install tips
--------------
-需要memcache支持
-需要打开php短标签标记: short_open_tag = On
-导入数据库，配置代码，修改config/allconfig.php内baseurl、数据库、邮箱等关键配置
-需要给invite文件夹、shoutbox_new.html等需要进行读写操作的文件、文件夹写入权限
+# Update in version 0.3
 
-TODO
------
-主要的缺点是多语言支持被破坏了，以及配置起来更麻烦
-更改的配置相关的代码直接写到了相应页面
-输出也直接用简体中文方式写到了相应页面
-这使得代码的整改挪用变得十分困难，需要查看、修改每个页面才能至少把麦粒，麦田等相关词语改掉
+* Applications: Steal the credit, Lottery, Change your name, Buy promotions
+* Robot in shout box
+* Ask for resources, Recycle bin, Invitation on demand, Torrent Title Generator
+* Fetch info from IMDb or Douban
+* Evaluation System
+* Sub-category icons
+* Campas Account Verification
+* Private messages, @ somebody, Torrent Reference
+
+# Install Requirements
+
+* memcache
+* PHP Short Open Tag Feature has to be enabled: short_open_tag = On
+* Import database, modify the configuration
+* Set permissions to directory `invite`, file `shoutbox_new.html` and other files or directories needs to be written
+
+# TODO
+
+* Missing Multi-Language Support
+* Some configuration is mingled in the codes of pages
+* Some outputs is written in the codes of pages in Chinese (Simplified)
 
 
-Contributors
-------------
-扬扬，xhf，cide，samurai7，EINino，zhaojiajia，沉浮江湖，F12
-北洋园-喵喵，蚂蚁-真红酱，纳兰斯坦，Bill
+# Contributors
+
+扬扬，xhf，cide，samurai7，EINino，zhaojiajia，沉浮江湖，F12, 北洋园-喵喵，蚂蚁-真红酱，纳兰斯坦，Bill
