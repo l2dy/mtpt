@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>教育网用户注册 - 西北农林科技大学麦田IPV6资源分享平台</title>
+  <link rel="stylesheet" href="templates/default/css/common-enter.css" type="text/css" />
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+  </script>
+</head>
+
+<body>
+  <div class="login-header">
+    <div class="login-banner">
+      <img src="templates/default/images/banner-login.png" />
+    </div>
+  </div>
+  <!--login-header-->
+  <div class="login-main">
+    <div class="login-main-b">
+      <div class="login-block" id="register-user-tip">
+        <ul class="two-side-list">
+          <li>用户名只允许中文、字母、数字，4至14个字符</li>
+          <li>限中国教育网 (CERNET) 或中国科技网 (CSTNET) 邮箱（以 .edu.cn 或 .ac.cn 结尾）自助注册</li>
+        </ul>
+      </div>
+      <!--passwd-back-->
+      {% $signuplist %}
+      <div class="login-block register-list-all" id="register-inner">
+        <form action="takeedu.php" method="post" id="register-frm" class="frms">
+          <div class="form-list">
+            <span class="form-tips">用户名：</span>
+            <input type="text" size="32" id="username" name="wantusername" class="form-info" required />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">密码：</span>
+            <input type="password" size="32" id="passwords" name="wantpassword" class="form-info" required />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">确认密码：</span>
+            <input type="password" size="32" id="confirmpasswords" name="passagain" class="form-info" required />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">邮箱：</span>
+            <input type="text" size="32" id="emails" name="email" class="form-info" required />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">性别：</span>
+            <span class="register-sex">
+              <input type="radio" value="Male" class="form-info" name="gender" style="float:left" required />♂男</span>
+            <span class="register-sex">
+              <input type="radio" value="Female" name="gender" class="form-info" style="float:left" required />♀女</span>
+          </div>
+          <input type="hidden" name="country" id="relesverify" value="8">
+          <input type="hidden" name="rulesverify" id="relesverify" value="yes">
+          <input type="hidden" name="faqverify" id="faqverify" value="yes">
+          <input type="hidden" name="ageverify" id="ageverify" value="yes">
+          <div class="form-list">
+            <input type="button" id="register-button" value="注册(请勿多次点击)" class="enter-button enter-button2" />
+          </div>
+        </form>
+        <div class="clear"></div>
+        <p class="enter-tips enter-tips1">请启用cookie保证注册或者登录成功
+          <br/>所有项目都必须填写</p>
+      </div>
+      <!--logins-->
+    </div>
+    <!--login-block-->
+    <div class="clear"></div>
+  </div>
+  <!--login-main-b-->
+  </div>
+  <!--login-footer-top-->
+  <div class="login-footer">
+    <p>&copy; 麦田 PT 陕ICP备05001586号 2010-2018 Powered by MTPT</p>
+    <p>站点设计与维护：西北农林科技大学网络与教育技术中心</p>
+  </div>
+  <!--login-footer-->
+  <script>
+  $(document).ready(function(){
+    function strEndsWith (value, suffix) {
+      return value.slice(value.length - suffix.length) == suffix;
+    }
+    function emailIsEduOrAc (email) {
+      var valid_suffixs = ['.edu.cn', '.ac.cn'];
+      var result = false;
+      $.each(valid_suffixs, function(i, v){
+        if (strEndsWith(email, v))
+          result = true;
+      });
+      return result;
+    }
+    $('#register-button').click(function() {
+      var error_list = Array();
+      // Check passwords
+      if ($('#passwords').val() == '')
+        error_list.push('未填写密码。');
+      if ($('#passwords').val() != $('#confirmpasswords').val())
+        error_list.push('两次密码不一致。');
+      if (!emailIsEduOrAc($('#emails').val()))
+        error_list.push('邮箱域后缀不符。');
+      if (error_list.length > 0)
+        alert('注册信息有误，详细信息如下：\n' + error_list.join('\n'));
+      else
+        $('#register-frm').submit();
+    });
+  });
+  </script>
+</body>
+
+</html>

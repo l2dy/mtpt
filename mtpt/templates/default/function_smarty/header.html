@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{% if $metakeywords_tweak ne "" %}
+<meta name="keywords" content="{% $metakeywords %}" />
+{% /if %}
+{% if $metadescription_tweak ne "" %}
+<meta name="description" content="{% $metadescription_tweak %}" />
+{% /if %}
+<meta name="generator" content="{% $projec_tname %}" />
+{% $style_addicode %}
+<title>{% $title %}</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="search" type="application/opensearchdescription+xml" title="{% $site_name %} Torrents" href="opensearch.php" />
+<link rel="stylesheet" href="{% $font_css_uri %}{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="styles/sprites.css{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="{% $forum_pic_folder %}/forumsprites.css{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="{% $css_uri %}theme.css{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="{% $css_uri %}DomTT.css{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="/styles/badge.css" type="text/css" />
+<link rel="stylesheet" href="styles/curtain_imageresizer.css{% $cssupdatedate %}" type="text/css" />
+<link rel="stylesheet" href="jquerylib/jquery.alerts.css{% $cssupdatedate %}" type="text/css" />
+{% if $css_file ne "" %}
+<link rel="stylesheet" href="{% $css_file %}{% $cssupdatedate %}" type="text/css" />
+{% /if %}
+<link rel="alternate" type="application/rss+xml" title="Latest Torrents" href="torrentrss.php" />
+<script type="text/javascript" src="curtain_imageresizer.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="ajaxbasic.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="common.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="domLib.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="domTT.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="domTT_drag.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="fadomatic.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="jquerylib/jquery-1.5.2.min.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="jquerylib/jquery.alerts.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="jquerylib/jquery.ui.draggable.js{% $cssupdatedate %}"></script>
+<script type="text/javascript" src="jquerylib/jquery.caretInsert.js{% $cssupdatedate %}"></script>
+<link rel="stylesheet" href="userAutoTips.css" type="text/css" />
+<style type="text/css">
+html body {
+_background-image:url(about:blank);
+_background-attachment:fixed;
+}
+#roll_top,#roll_bottom {
+    position:relative;
+    cursor:pointer;
+    height:52px;
+    width:50px;
+    }
+#roll_top {
+    background:url(pic/up.png) no-repeat;
+    }
+#roll_bottom {
+    background:url(pic/up.png) no-repeat 0 -52px;
+    }
+#roll {
+    display:block;
+    width:50px;
+    margin-right:-546px;  /*这个是距离的位置，请自行调整*/
+    position:fixed;
+    right:50%;
+    top:80%;
+    _margin-right:-545px;/*Hack IE6的，请用IE6打开自行调整*/
+    _position:absolute;
+    _margin-top:300px;
+    _top:expression(eval(document.documentElement.scrollTop));
+    }
+</style>
+<script type="text/javascript" src="userAutoTips.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#roll_top').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$('#roll_bottom').click(function(){$('html,body').animate({scrollTop:$('#footer').offset().top}, 800);});
+	t_ids = $('textarea');
+	if(t_ids)
+	{
+		for(var i = 0 ;i<t_ids.length;i++)
+		{
+			userAutoTips({id:t_ids[i].id});
+		}	
+	}
+	$('#roll_top').click(function(){$('html,body').animate({scrollTop: '0px'}, 800);});
+	$('#roll_bottom').click(function(){$('html,body').animate({scrollTop:$('#footer').offset().top}, 800);});
+});
+</script>
+
+</head>
+<body>
+
+<div id="roll"><div title="回到顶部" id="roll_top"></div><div title="转到底部" id="roll_bottom"></div></div>
+<table class="head" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td class="clear">
+{% if $logo_main eq "" %}
+			<div class="logo">{% $site_name %}</div>
+			<div class="slogan">{% $slogan %}</div>
+{% else %}
+			<div class="logo_img"><img src="{% $logo_main %}" alt="{% $site_name %}" title="{% $site_name %} - {% $slogan %}" /></div>
+{% /if %}
+        </td>
+		<td class="clear nowrap" align="right" valign="middle">
+{% if $headerad ne ""  %}
+        <span id="header">{% $headerad %}</span>			
+{% /if %}
+{% if $enabledonation eq "yes"  %}
+		<a href="donate.php"><img src="{% $forum_pic_folder %}/donate.gif" alt="Make a donation" style="margin-left: 5px; margin-top: 50px;" /></a>
+{% /if %}
+
+		</td>
+	</tr>
+</table>
+
+<table class="mainouter" width="982" cellspacing="0" cellpadding="5" align="center">
+	<tr><td id="nav_block" class="text" align="center">
+{% if $cur_user eq "" %}
+<a href="login.php"><font class="big"><b>登录</b></font></a>  ｜ <a href="signupcard.php"><font class="big"><b>学号注册</b></font></a> ｜ <a href="signup.php?type=invite"><font class="big"><b>邀请注册</b></font></a> ｜ <a href="signup.php"><font class="big"><b>普通注册</b></font></a>  ｜ <a href="invitebox.php"><font class="big"><b>邀请申请区</b></font></a>
+{% if $ismtpt %}
+{% else %}
+	<div data-warn="warn" align=center style="font-size:32px;background:#f00;height:450px;position:relative;">您使用IPV4地址访问了假麦田,使用假麦田会对正常麦田用户造成偷跑锐捷流量等各种不好的影响,所以该地址将在近期被禁用！<br/>本提示在你访问正确的麦田地址后会自动消失,如未消失请清理浏览器缓存。<br/><b>请认准麦田PT官方地址：(pt.nwsuaf6.edu.cn)复制括号中的内容到浏览器地址栏粘贴访问。</b><br/>建议将正确的麦田地址添加书签。<br/>麦田PT只支持IPV6访问，西农用户请使用锐捷有线认证在宿舍及部分办公区获取IPV6地址。<div align=center style="position:absolute;left:0;right:0;bottom:0;font-size:30px">做这么丑真的只是为了醒目而已啊。。</div></div>
+		<br/>
+{% /if %}
+{% if $istunnel %}
+<div align=center style="background:black;" ><a href="http://pt.nwsuaf6.edu.cn/faq.php#id16" target="_blank"><font face="verdana" size=4 color="white">重要提示！您正在使用隧道访问麦田，这会导致您产生巨大的校园网计费流量！<br/>请点击这里解决！</font></a></div>
+<br/>
+{% /if %}
+{% else %}
+<table class="main" width="940" border="0" cellspacing="0" cellpadding="0">
+	<tr><td class="embedded" ><div id="nav">
+	<ul id="mainmenu" class="menu">
+	<li id="home_tmp"><a href="index.php">{% $lang_functions.text_home %}</a></li>
+	
+	<li id="forums_tmp"><a href="forums.php">{% $lang_functions.text_forums %}</a></li>
+	
+	<li id="torrents_tmp"><a href="torrents.php">{% $lang_functions.text_torrents %}</a></li>
+	<li id="viewrequest_tmp"><a href="viewrequest.php">&nbsp;求&nbsp;&nbsp;种&nbsp;</a></li>
+	<li id=upload_tmp><a  href="upload.php">{% $lang_functions.text_upload %}</a></li>
+	
+	<li id=recycle_tmp><a  href="recycle.php">候选区</a></li>
+	<li id=usebonus_tmp><a href="usebonus.php">麦乐园</a></li>
+	
+	<li id=topten_tmp><a  href="topten.php">{% $lang_functions.text_top_ten %}</a></li>
+	<li id=log_tmp><a  href="log.php">{% $lang_functions.text_log %}</a></li>
+	<li id=rules_tmp><a  href="rules.php">{% $lang_functions.text_rules %}</a></li>
+	<li id=faq_tmp><a  href="faq.php">{% $lang_functions.text_faq %}</a></li>
+	<!-- <li><a href="autofaq" target="_blank">麦萌萌faq</a></li> -->
+	<li id=staff_tmp><a  href="staff.php">{% $lang_functions.text_staff %}</a></li>
+	</ul>
+
+	</div>  
+		<script>
+	var select="{% $select %}";
+	$("#"+select+"_tmp").addClass("selected");
+	</script>
+	</td></tr>
+	</table>
+
+	
+	<table id="info_block" cellpadding="4" cellspacing="0" border="0" width="100%"><tr>
+	<td><table width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+	<td class="bottom" align="left">
+	<span class="medium">{% $lang_functions.text_welcome_back %},{% $username %}  [<a href="logout.php">{% $lang_functions.text_logout %}</a>] [<a href="usercp.php">个人设置</a>]
+	{% if $userclass eq $UC_UPLOADER %}
+	[<a href='uploaders.php'>发布员考核</a>]
+	{% /if %}
+	{% if $userclass eq $UC_MODERATOR %}
+	[<a href='moderators.php'>管理员考核</a>]
+	{% /if %}
+	{% if $userclass ge $UC_MODERATOR %}
+	[<a href="staffpanel.php">{% $lang_functions.text_staff_panel %}</a>]
+	{% /if %}
+	{% if $userclass ge $UC_SYSOP %}
+	[<a href="settings.php">{% $lang_functions.text_site_settings %}</a>]
+	{% /if %}
+	[<a href="torrents.php?inclbookmarked=1&amp;allsec=1&amp;incldead=0">{% $lang_functions.text_bookmarks %}</a>] 
+	<font class = 'color_bonus'>{% $lang_functions.text_bonus %}</font>
+    [<a href="mybonus.php">{% $lang_functions.text_use %}</a>丨<a href="usebonus.php">{% $lang_functions.text_app %}</a>]: {% $seedbonus %}
+    <font class = 'color_invite'>{% $lang_functions.text_invite %}</font>
+    [<a href="invite.php?id={% $CURUSERID %}">{% $lang_functions.text_send %}</a>]: {% $CURUSER_INVITES %}<br />
+	<font class="color_ratio">{% $lang_functions.text_ratio %}</font> {% $ratio %} 
+	<font class='color_uploaded'>{% $lang_functions.text_uploaded %}</font> {% $CURUSER_UPLOADED %}
+	<font class='color_downloaded'> {% $lang_functions.text_downloaded %}</font> {% $CURUSER_DOWNLOADED %}
+	<font class='color_active'>{% $lang_functions.text_active_torrents %}</font> 
+	<a href="userdetails.php?id={% $CURUSERID %}&show=seeding">
+	<img class="uploading" alt="Torrents seeding" title="{% $lang_functions.title_torrents_seeding %}"  src="pic/trans.gif" />
+	{% $activeseed %}</a> 
+	<a href="userdetails.php?id={% $CURUSERID %}&show=leeching">
+	<img class="downloading" alt="Torrents leeching" title="{% $lang_functions.title_torrents_leeching %}" src="pic/trans.gif" />
+	{% $activeleech %}</a>
+	<a href="userdetails.php?id={% $CURUSERID %}&show=completed" title="已完成">
+	<img class="completed" alt="completed" title="已完成"  src="pic/trans.gif" />--</a>
+	<a href="userdetails.php?id={% $CURUSERID %}&show=uploaded" title="已发布">
+	<img class="uploaded" alt="uploaded" title="已发布"  src="pic/trans.gif" />--</a>
+	<font class='color_connectable'>{% $lang_functions.text_connectable %}</font>
+   {% if $connect eq "yes" %}
+	<b><font color="green">{% $lang_functions.text_yes %}</font></b>
+	{% else if $connect eq "no" %}
+	<a href="faq.php#id21"><b><font color="red">{% $lang_functions.text_no %}</font></b></a>
+	{% else %}
+	{% $lang_functions.text_unknown %}
+	{% /if %}
+	
+	 </span></td>
+	<td class="bottom" align="right"><span class="medium">{% $lang_functions.text_the_time_is_now %}
+	{% $datum.hours %}:{% $datum.minutes %}<br />
+	{% if $userclass ge $staffmem_class %}
+	<a href="cheaterbox.php"><img class="cheaterbox" alt="cheaterbox" title="{% $lang_functions.title_cheaterbox %}" src="pic/trans.gif" /></a>
+	{% $totalcheaters %}
+	 <a href="reports.php"><img class="reportbox" alt="reportbox" title="{% $lang_functions.title_reportbox %}" src="pic/trans.gif" />  </a>
+     {% $totalreports %}
+       <a href="staffbox.php"><img class="staffbox" alt="staffbox" title="{% $lang_functions.title_staffbox %}" src="pic/trans.gif" />  </a>
+     {% $totalsm %}
+	 {% /if %}
+     {% if $unread eq 0 %}
+     <a href="messages.php"><img class="inbox" src="pic/trans.gif" alt="inbox" title="{% $lang_functions.title_inbox_no_new_messages %}"/></a>
+     {% $messages %}
+     {% else %}
+     <a href="messages.php"><img class="inboxnew" src="pic/trans.gif" alt="inbox" title="{% $lang_functions.title_inbox_new_messages %}"/></a>
+      {% $messages %}
+      {% /if %}
+     <a href="messages.php?action=viewmailbox&amp;box=-1"><img class="sentbox" alt="sentbox" title="{% $lang_functions.title_sentbox %}" src="pic/trans.gif" /></a> 
+     {% $outmessages %}
+	<a href="friends.php"><img class="buddylist" alt="Buddylist" title="{% $lang_functions.title_buddylist %}" src="pic/trans.gif" /></a>
+	<a href="getrss.php"><img class="rss" alt="RSS" title="{% $lang_functions.title_get_rss %}" src="pic/trans.gif" /></a>
+		
+	</span></td>
+	</tr></table></td>
+</tr></table>
+</td></tr>
+
+
+<tr><td id="outer" align="center" class="outer" style="padding-top: 20px; padding-bottom: 20px">
+{% if $loginadd eq "yes" %}
+{% if $Days eq 1 %}
+<script type="text/javascript">
+	jAlert("<font color=red>连续登录{% $salarynum %}天奖励，恭喜你获取了{% $addbonus %}点麦粒，继续保持哦</font>", "每日登录奖励");
+</script>
+{% else if $Days gt 0 %}
+<script type="text/javascript">
+	jAlert("<font color=red>每日登录奖励，恭喜你获取了{% $addbonus %}点麦粒，连续多天登录会有更多奖励哦</font>", "每日登录奖励");
+</script>
+{% /if %}
+{% /if %}
+{% if $offlinemsg ne false %}
+<p><table width="737" border="1" cellspacing="0" cellpadding="10"><tr><td style="padding: 10px; background: red" class="text" align="center">
+<font color="white">{% $lang_functions.text_website_offline_warning %}</font>
+</td></tr></table></p><br />
+{% /if %}
+{% if $ismtpt %}
+{% else %}
+<div data-warn="warn" align=center style="font-size:32px;background:#f00;height:450px;position:relative;">您使用IPV4地址访问了假麦田,使用假麦田会对正常麦田用户造成偷跑锐捷流量等各种不好的影响,所以该地址将在近期被禁用！<br/>本提示在你访问正确的麦田地址后会自动消失,如未消失请清理浏览器缓存。<br/><b>请认准麦田PT官方地址：(pt.nwsuaf6.edu.cn)复制括号中的内容到浏览器地址栏粘贴访问。</b><br/>建议将正确的麦田地址添加书签<br/>麦田PT只支持IPV6访问，西农用户请使用锐捷有线认证在宿舍及部分办公区获取IPV6地址。<div align=center style="position:absolute;left:0;right:0;bottom:0;font-size:30px">做这么丑真的只是为了醒目而已啊。。</div></div>
+		<br/>
+{% /if %}
+{% if $istunnel %}
+<div align=center style="background:black;" ><a href="http://pt.nwsuaf6.edu.cn/faq.php#id16" target="_blank"><font face="verdana" size=4 color="white">重要提示！您正在使用隧道访问麦田，这会导致您产生巨大的校园网计费流量！<br/>请点击这里解决！</font></a></div>
+<br/>
+{% /if %}
+{% $msgalerttab %}
+{% if $belownavad %}
+{% $belownavad %}
+{% /if %}
+{% /if %}

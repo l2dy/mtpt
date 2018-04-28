@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>西北农林科技大学麦田IPV6资源分享平台</title>
+  <link rel="stylesheet" href="templates/default/css/common-enter.css" type="text/css" />
+  <script language="javascript" type="text/javascript" src="templates/default/js/jquery-1.4.2.min.js">
+  </script>
+</head>
+
+<body>
+  <div class="login-header">
+    <div class="login-banner">
+      <img src="templates/default/images/banner-login.png" />
+    </div>
+  </div>
+  <!--login-header-->
+  <div class="login-main">
+    <div class="login-main-b">
+      <div class="login-block" id="register-user-tip">
+        <ul class="two-side-list">
+          <li>-用户名只允许中文、字母、数字，4至14个字符</li>
+          <li>-注册后不能修改，不要求用户名与学号相同</li>
+          {% if $inschool eq 1 %}
+          <li>-当前为开放校内IP注册模式！请填写你的学号注册！重要提示，请不要使用他人的学号！站点会不定期验证学号密码，验证不通过将会导致你的账号被禁用！</li>
+          {% /if %} {% if $inschool eq 2 %}
+          <li>-当前为开放校内IP注册模式！检测到你的ip来自校外，如果你的确是校内用户请填写用户名和锐捷密码通过验证后才可注册</li>
+          {% /if %} {% if $emailnotice != '' %}
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li>{% $emailnotice %}</li>
+          {% /if %}
+
+        </ul>
+      </div>
+      <!--passwd-back-->
+      {% $signuplist %}
+      <div class="login-block register-list-all" id="register-inner">
+        <form action="takecard.php" method="post" id="register-frm" class="frms">
+          <div class="form-list">
+            <span class="form-tips">用户名：</span>
+            <input type="text" size="32" id="username" name="wantusername" class="form-info" />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">密码：</span>
+            <input type="password" size="32" id="passwords" name="wantpassword" class="form-info" />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">确认密码：</span>
+            <input type="password" size="32" id="confrimpasswords" name="passagain" class="form-info" />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">学工号：</span>
+            <input type="text" size="32" id="nums" name="stuid" class="form-info" />
+          </div>
+          {% if $inschool ne 1 %}
+          <div class="form-list">
+            <span class="form-tips">锐捷密码：</span>
+            <input type="password" size="32" id="ruijiepasswords" name="cardpass" class="form-info" />
+          </div>
+          {% /if %}
+          <div class="form-list">
+            <span class="form-tips">邮箱：</span>
+            <input type="text" size="32" id="emails" name="email" class="form-info" />
+          </div>
+          <div class="form-list">
+            <span class="form-tips">性别：</span>
+            <span class="register-sex">
+              <input type="radio" value="Male" class="form-info" name="gender" style="float:left" />♂男</span>
+            <span class="register-sex">
+              <input type="radio" value="Female" name="gender" class="form-info" style="float:left" />♀女</span>
+          </div>
+          <input type="hidden" name="country" id="relesverify" value="8">
+          <input type="hidden" name="rulesverify" id="relesverify" value="yes">
+          <input type="hidden" name="faqverify" id="faqverify" value="yes">
+          <input type="hidden" name="ageverify" id="ageverify" value="yes">
+          <div class="form-list">
+            <input type="submit" id="register-button" value="注册(请勿多次点击)" class="enter-button enter-button2" />
+          </div>
+        </form>
+        <div class="clear"></div>
+        <p class="enter-tips enter-tips1">请启用cookie保证注册或者登录成功
+          <br/>所有项目都必须填写</p>
+      </div>
+      <!--logins-->
+    </div>
+    <!--login-block-->
+    <div class="clear"></div>
+  </div>
+  <!--login-main-b-->
+  </div>
+  <!--login-footer-top-->
+  <div class="login-footer">
+    <p>&copy; 麦田 PT 陕ICP备05001586号 2010-2018 Powered by MTPT</p>
+    <p>站点设计与维护：西北农林科技大学网络与教育技术中心</p>
+  </div>
+  <!--login-footer-->
+</body>
+
+</html>

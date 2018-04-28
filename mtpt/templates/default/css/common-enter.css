@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding:0;
+	margin:0;
+	list-style:none;
+	font-size:13px;
+	font-family:"微软雅黑";
+	text-decoration:none;
+	color:#fff;
+}
+.clear{
+	padding:0;
+	margin:0;
+	clear:both;
+	border:0;}
+body{
+	background:#6c97fc;}
+.login-header,.login-main,.login-footer,.login-main-b{
+	width:100%;
+	margin:0 auto;}
+.login-header{
+	height:173px;
+	//background:url(../images/cloud1.png) no-repeat left bottom;
+	//background:url(../images/cloud2.png) no-repeat right bottom;
+	background: url(../images/cloud1.png) bottom  left no-repeat, url(../images/cloud2.png) bottom  right no-repeat;
+	}
+.login-banner{
+	width:447px;
+	height:105px;
+	padding-left:55px;
+	padding-top:68px;
+	margin:0 auto;
+	}
+.login-main{
+	height:auto;
+	min-height:400px;
+	background:url(../images/maitian1.png) bottom repeat-x;}
+.login-main-b{
+	width:1120px;
+	height:auto;
+	min-height:400px;}
+.login-block{
+	width:330px;
+	margin:0 15px;
+	padding:30px 0 20px 0;
+	background:url(../images/login-block-b.png);}
+#passwd-back,#register-user-tip{
+	width:290px;
+	padding:30px 20px 20px 20px;
+	float:right;}
+#logins,#register-list,#register-list2,.register-list-all{
+	float:left;}
+.register-list-all{
+	width:398px;
+	margin:0 auto;}
+#logins,#register-frm{
+	width:348px;
+	padding:25px;
+	margin:0 auto;}
+
+.two-side-list li,.register-list-a li,.two-side-list li a{
+	font-size:15px;
+	cursor:pointer;
+	text-shadow:1px 1px 2px rgba(0,0,0,.2), 0 0 1em rgba(255, 0, 255, 0.5), 0 0 0.2em rgba(0, 0, 255, 0.2);
+	}
+.register-list-a li a{
+	font-size:15px;}
+.two-side-list li{
+	line-height:1.4;
+	margin-bottom:20px;
+}
+.two-side-list li:hover{
+	text-decoration:underline;}
+.register-list-a li{
+	height:40px;
+	text-align:center;
+	margin-bottom:10px;
+	line-height:40px;
+	}
+.register-list-a li:hover,.current-list{
+	background:url(../images/register-list-b.png);}
+#register-list-05{
+	margin-top:30px;
+	text-decoration:underline;}
+.frms{
+	margin:0 40px;}
+.form-list{
+	height:40px;
+	line-height:40px;
+	margin-bottom:5px;}
+.form-tips{
+	width:100px;
+	float:left;
+	text-align:right;
+	font-size:14px;
+	margin-right:3px;}
+.form-info{
+	margin-top:8px;
+	height:28px;
+	color:#000;
+	}
+#install,#install option{
+	width:209px;
+	color:#666;
+	}
+.passwd-tip{
+	text-align:right;
+	text-decoration:underline;
+	cursor:pointer;
+	margin-right:20px;
+	font-style:italic;}
+.enter-button{
+	width:80px;
+	height:35px;
+	margin-top:20px;
+	margin-right:25px;
+	background:url(../images/register-list-b.png);
+	border:none;
+	text-shadow:1px 1px 2px rgba(0,0,0,.2), 0 0 1em rgba(255, 0, 255, 0.5), 0 0 0.2em rgba(0, 0, 255, 0.9);
+	cursor:pointer;
+	float:left;}
+.enter-button2{
+	width:150px;}
+#register-button{
+	margin-left:105px;}
+.enter-tips,.enter-tips a{
+	text-decoration:underline;
+	text-align:center;
+	color:#ff7d09;
+}
+.enter-tips1{
+	padding-top:40px;}
+.enter-tips2{
+	padding-bottom:20px;}
+.login-footer{
+	height:120px;
+	padding-top:80px;
+	background:#ffe150;
+	text-align:center;}
+.login-footer p{
+	color:#777;
+	}
+#passwd-back,#register-list{
+	visibility:hidden;
+	}
+.register-sex{
+	margin-left:40px;
+	float:left;}
+	
+/*找回密码*/
+.passwd-list{
+	z-index:9;
+	width:360px;
+	height:auto;
+	background:#9CF;
+	min-height:180px;
+	position:absolute;
+	top:25%;
+	text-shadow:1px 1px 2px rgba(0,0,0,.2), 0 0 1em rgba(255, 0, 255, 0.5), 0 0 0.2em rgba(0, 0, 255, 0.9);
+	display:none;
+	left:35%;}
+.passwd-frm{
+	width:320px;
+	padding:20px;}
+#passwd-button{
+	text-align:center;
+	margin-bottom:15px;
+	margin-left:120px;}
+#close-passwd{
+	width:350px;
+	height:32px;
+	background:#95b4fd;
+	padding-right:10px;
+	
+	text-align:right;}
+#close-passwd img{
+	cursor:pointer;
+	margin-top:4px;}
+.hidden-print{
+	z-index:1;
+	width:100%;
+	height:100%;
+	position: absolute;
+left: 0;
+top: 0;
+background:#fff;
+opacity: 0.65;
+filter: alpha(opacity=65);
+-moz-opacity: 0.65;
+display: none;
+	}
+.frm-passwd-return{
+	width:340px;
+	height:auto;
+	min-height:115px;}
+.enter-tips3{
+	//color:#900;
+	text-shadow:none;
+	}

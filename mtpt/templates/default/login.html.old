@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>西北农林科技大学麦田PT</title>
+<link rel="stylesheet" href="templates/default/css/common-enter.css" type="text/css"/>
+<script language="javascript" type="text/javascript" src="templates/default/js/jquery-1.4.2.min.js">
+</script>
+
+</head>
+
+<body>
+<div class="login-header">
+ <div class="login-banner"><img src="templates/default/images/banner-login.png"/></div>
+</div><!--login-header-->
+   {% if $showwarn eq 1 %}
+	<script type="text/javascript">
+function display_alert()
+  {
+  alert("此页面需要登录之后才能访问！请登录╰∪╯")
+  }display_alert()
+</script>
+{% /if %}
+<div class="login-main">
+   <div class="login-main-b">
+     <div class="login-block" id="passwd-back">
+        <ul class="two-side-list">
+        <li id="passwd-back-01">-邮箱密码找回</li>
+        <li id="passwd-back-02">-通过一卡通找回密码</li>
+        <li id="passwd-back-03">-重新发送验证邮箱(24小时内邮箱验证未通过时使用)</li>
+        <li id="passwd-back-00"><a href="userlog.php" target="_blank">-查看封号/删除账号</a></li>
+        </ul>
+     </div><!--passwd-back-->
+{% $signuplist %}
+     <div class="login-block" id="logins">
+       <form action="takelogin.php" method="post" id="login-frm">
+         <div class="form-list"><span class="form-tips">用户名/邮箱：</span><input type="text" size="32" id="username" name="username" class="form-info"/></div>
+         <div class="form-list"><span class="form-tips">密码：</span><input type="password" size="32" id="password" name="password" class="form-info"/></div>
+         <div class="passwd-tip" id="forget-pass">忘记密码？</div>
+         <div class="form-list"><span class="form-tips">登陆期限：</span>
+                                               <select id="install" name="dutime"class="form-info">
+                                                   <option id="install-01"value="day">一天内自动登录</option>
+                                                   <option id="install-02"value="week"selected="select">一周内自动登录</option>
+                                                   <option id="install-03"value="month">一月内自动登录</option>
+                                               </select></div>
+         <div class="form-list"><input type="button" id="register-button" value="注册" class="enter-button"/>
+         <input type="submit" id="submit-button" value="登录" class="enter-button"/></div>
+{% if $returnto !='' %}
+<input type="hidden" name="returnto" value="{% $returnto %}  "/>
+{% /if %}
+       </form>
+       <p class="enter-tips enter-tips1"><a href="/autofaq" target="_blank">有问题？先问一下麦萌萌</a></p></br>
+       <p class="enter-tips enter-tips2">新手QQ群：145543216</br><a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=e4a93409574f25aa6e1a29a917ff4b3c97b5db948915d09fbcc073aeb8233bad"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="麦田PT新人注册指导" title="麦田PT新人注册指导"></a></p>
+     </div><!--logins-->
+  </div><!--login-block-->
+  <div class="clear"></div>
+<div class="hidden-print"></div>
+<div class="passwd-list" id="passwd-back-return1">
+ <div id="close-passwd"><img src="templates/default/images/switch-240.png" class="close-img"/></div>
+ <div class="passwd-frm">
+  <form action="recover.php" method="post" id="frm-passwd-return1">
+  <div class="form-list"><span class="form-tips">邮箱：</span><input type="text" size="32" id="username" name="email" class="form-info"/></div>
+ <input type="submit" id="passwd-button" value="确定" class="enter-button"/>
+  <div class="clear"></div>
+  </form>
+<p class="enter-tips">注意：连续50次错误尝试会导致你的IP地址被禁用！<br/>
+</p>
+</div><!--passwd-frm-->
+</div><!--passwd-back-return1-->
+
+<div class="passwd-list" id="passwd-back-return2">
+ <div id="close-passwd"><img src="templates/default/images/switch-240.png" class="close-img"/></div>
+ <div class="passwd-frm">
+  <form action="cardrecover.php" method="post" id="frm-passwd-return2">
+  <div class="form-list"><span class="form-tips">学号/工号：</span><input type="text" size="32" id="userno" name="stuid" class="form-info"/></div>
+  <div class="form-list"><span class="form-tips">锐捷密码：</span><input type="text" size="32" id="username" name="password" class="form-info"/></div>
+ <input type="submit" id="passwd-button" value="确定" class="enter-button"/>
+  <div class="clear"></div>
+  </form>
+<p class="enter-tips">注意：连续50次错误尝试会导致你的IP地址被禁用！<br/>
+</p>
+</div><!--passwd-frm-->
+</div><!--passwd-back-return2-->
+
+<div class="passwd-list" id="passwd-back-return3">
+ <div id="close-passwd"><img src="templates/default/images/switch-240.png" class="close-img"/></div>
+ <div class="passwd-frm">
+  <form action="confirm_resend.php" method="post" id="frm-passwd-return3">
+  <div class="form-list"><span class="form-tips">注册邮箱：</span><input type="text" size="32" id="username" name="email" class="form-info"/></div>
+   <div class="form-list"><span class="form-tips">新密码：</span><input type="password" size="32" id="passwords" name="wantpassword" class="form-info"/></div>
+    <div class="form-list"><span class="form-tips">确认密码：</span><input type="password" size="32" id="passwords" name="passagain" class="form-info"/></div>
+ <input type="submit" id="passwd-button" value="确定" class="enter-button"/>
+  <div class="clear"></div>
+  </form>
+<p class="enter-tips">注意：连续50次错误尝试会导致你的IP地址被禁用！<br/>
+</p>
+</div><!--passwd-frm-->
+</div><!--passwd-back-return1-->
+   </div><!--login-main-b-->
+
+
+<div class="login-footer">
+ <p>(c) 麦田 PT 陕ICP备05001586号 2010-2013 Powered by MTPT</p>
+    <p>站点设计与维护：西北农林科技大学网络与教育技术中心</p>
+</div><!--login-footer-->
+<script>
+
+var resister=document.getElementById("register-list");
+var passwd=document.getElementById("passwd-back");
+var forget=document.getElementById("forget-pass");
+var registerbutton=document.getElementById("register-button");
+forget.onclick=function(){
+	passwd.style.visibility="visible";
+	}
+registerbutton.onclick=function(){
+	resister.style.visibility="visible";
+//	alert("寒假期间关闭注册！");
+	}
+</script>
+
+</body>
+</html>

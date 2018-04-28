@@ -1,0 +1,78 @@
+<script type="text/javascript">
+$(document).ready(function($){
+
+	$('#passwd-back-01').click(function(){
+		$('.hidden-print').show();
+		$('.hidden-print').height($(document).height());
+		$('#passwd-back-return1').slideDown(200);
+	})
+	$('.close-img').click(function(){
+	$('.passwd-list').slideUp(200);
+		$('.hidden-print').hide();
+		
+	})
+	$('#passwd-back-02').click(function(){
+		$('.hidden-print').show();
+		$('.hidden-print').height($(document).height());
+		$('#passwd-back-return2').slideDown(200);
+	})
+	$('#passwd-back-03').click(function(){
+		$('.hidden-print').show();
+		$('.hidden-print').height($(document).height());
+		$('#passwd-back-return3').slideDown(200);
+	})
+	$('#passwd-back-04').click(function(){
+		$('.hidden-print').show();
+		$('.hidden-print').height($(document).height());
+		$('#passwd-back-return4').slideDown(200);
+	})
+
+});
+</script>
+{% if $show == 'no'  %}
+ <div class="login-block" id="register-list">
+ {% else %}
+  <div class="login-block" id="register-list2">
+  {% /if %}
+
+        <ul class="register-list-a">
+       <a href="login.php"> <li id="register-list-01" 
+	   {% if $select=='login' %}
+	   class="current-list"
+	   {% /if %}
+	   >登录</li></a>
+       <a href="signupcard.php"> <li id="register-list-02"
+	   {% if $select=='signupcard' %}
+	   class="current-list"
+	   {% /if %}>校内用户注册</li></a>
+		<a href="signupedu.php"> <li id="register-list-02"
+		  {% if $select=='signupedu' %}
+		  class="current-list"
+		  {% /if %}>教育网邮箱自助注册</li></a>
+       <li id="passwd-back-04"
+	    {% if $select=='invite' %}
+	   class="current-list"
+	   {% /if %}>邀请注册</li>
+       <a href="signup.php"><li id="register-list-04"
+	    {% if $select=='signup' %}
+	   class="current-list"
+	   {% /if %}
+	   >普通注册</li></a>
+       <a href="invitebox.php"> <li id="register-list-05" 
+	    {% if $select=='invitebox' %}
+	   class="current-list"
+	   {% /if %}
+	   >邀请申请区</li></a>
+        </ul>
+		</div><!--register-back-->
+		<div class="passwd-list" id="passwd-back-return4">	
+ <div id="close-passwd"><img src="templates/default/images/switch-240.png" class="close-img"/></div>
+ <div class="passwd-frm">
+  <form action="signup.php" method="get" id="frm-passwd-return2">
+  <div class="form-list"><span class="form-tips">邀请码：</span><input type="text" size="32" id="userno" name="invitenumber" class="form-info"/><input type="hidden" name="type" value="invite"></div>
+ <input type="submit" id="passwd-button" value="确定" class="enter-button"/>
+  <div class="clear"></div>
+  </form>
+</div><!--passwd-frm-->
+</div><!--passwd-back-return4-->
+     

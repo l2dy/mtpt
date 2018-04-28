@@ -1,0 +1,39 @@
+/mtpt/attachments/*
+/mtpt/bitbucket/*
+/mtpt/config/allconfig.php
+/mtpt/data/*
+/mtpt/fonts/*
+/mtpt/imdb/cache/*
+/mtpt/imdb/images/*
+/mtpt/invite/*
+/mtpt/subs/*
+/mtpt/torrents/*
+/mtpt/uTorrent/*
+/mtpt/.ht*
+!.gitignore
+!README.md
+
+# for macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# JB
+.idea
+
+# cert-bot
+/mtpt/.well-known
