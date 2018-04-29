@@ -2433,22 +2433,22 @@ function logincookie($id, $passhash, $updatedb = 1, $expires = 0x7fffffff, $secu
 	if ($expires != 0x7fffffff)
 	$expires = time()+$expires;
 
-	setcookie("c_secure_uid", base64($id), $expires, "/");
-	setcookie("c_secure_pass", $passhash, $expires, "/");
+	setcookie("c_secure_uid", base64($id), $expires, "/", "", true);
+	setcookie("c_secure_pass", $passhash, $expires, "/", "", true);
 	if($ssl)
-	setcookie("c_secure_ssl", base64("yeah"), $expires, "/");
+	setcookie("c_secure_ssl", base64("yeah"), $expires, "/", "", true);
 	else
-	setcookie("c_secure_ssl", base64("nope"), $expires, "/");
+	setcookie("c_secure_ssl", base64("nope"), $expires, "/", "", true);
 
 	if($trackerssl)
-	setcookie("c_secure_tracker_ssl", base64("yeah"), $expires, "/");
+	setcookie("c_secure_tracker_ssl", base64("yeah"), $expires, "/", "", true);
 	else
-	setcookie("c_secure_tracker_ssl", base64("nope"), $expires, "/");
+	setcookie("c_secure_tracker_ssl", base64("nope"), $expires, "/", "", true);
 
 	if ($securelogin)
-	setcookie("c_secure_login", base64("yeah"), $expires, "/");
+	setcookie("c_secure_login", base64("yeah"), $expires, "/", "", true);
 	else
-	setcookie("c_secure_login", base64("nope"), $expires, "/");
+	setcookie("c_secure_login", base64("nope"), $expires, "/", "", true);
 
 
 	if ($updatedb)
