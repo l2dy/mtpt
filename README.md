@@ -31,6 +31,7 @@ You can mail us: `mtpt#nwsuaf.edu.cn` (replace # with @)
 
 # Install Requirements
 
+* PHP v5.3
 * memcache
 * PHP Short Open Tag Feature has to be enabled: short_open_tag = On
 * Import database, modify the configuration
