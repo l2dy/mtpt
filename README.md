@@ -2,13 +2,13 @@
 
 MTPT is based on the NexusPHP project, with many improvements.
 
-You can get it from http://github.com/nwafu-mta/mtpt/
+You can get it from https://github.com/nwafu-mta/mtpt.
 
-There are a big gap between codes in the old repository (github.com/MTPT/mtpt) and codes in this repository. The old repository has been removed.
+There is a big gap between code in the old repository (github.com/MTPT/mtpt) and code in this repository. The old repository has been removed.
 
 # License
 
-This project is based on GPL release agreement, you will get an LICENSE file with mtpt, you can get the source code for free, to modify the source code you must follow the GPL agreement.
+Unless otherwise noted, the MTPT source files are distributed under GPLv2 found in the LICENSE file.
 
 # Installation
 
@@ -26,7 +26,7 @@ You can mail us: `mtpt#nwsuaf.edu.cn` (replace # with @)
 * Fetch info from IMDb or Douban
 * Evaluation System
 * Sub-category icons
-* Campas Account Verification
+* Campus Account Verification
 * Private messages, @ somebody, Torrent Reference
 
 # Install Requirements
